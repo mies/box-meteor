@@ -1,5 +1,5 @@
 name: meteor
-versoin: 0.0.1
+version: 0.0.1
 inherits: wercker/ubuntu12.04-nodejs0.10
 type: main
 platform: ubuntu@12.04
