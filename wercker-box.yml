@@ -1,5 +1,5 @@
 name: meteor
-version: 0.0.8
+version: 0.0.9
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
 type: main
 platform: ubuntu@12.04
@@ -12,11 +12,16 @@ keywords:
 packages:
   - meteor@0.6.4
 script: |
-  sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+  echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
+  sudo apt-get install mongodb-10gen wget
   sudo apt-get update
   sudo apt-get upgrade
-  sudo -s
-  curl https://install.meteor.com | /bin/sh
+  cd /tmp/
+  wget https://d3fm2vapipm3k9.cloudfront.net/bootstrap/0.6.4/meteor-bootstrap-Linux_x86_64.tar.gz
+  tar -zxvf meteor-bootstrap-Linux_x86_64.tar.gz
+  ls -la
+  sudo /bin/sh install.sh
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
