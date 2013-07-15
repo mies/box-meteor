@@ -11,7 +11,7 @@ keywords:
   - nodejs
 packages:
   - meteor@0.6.4
-scripts: |
+script: |
   sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
   sudo -s
   curl https://install.meteor.com | /bin/sh
