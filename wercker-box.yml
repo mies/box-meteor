@@ -12,6 +12,8 @@ keywords:
 packages:
   - meteor@0.6.4
 script: |
+  sudo ls -la /usr/bin/
+  echo "init.d"
   sudo ls -la /etc/init.d/
   fail_HERE
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
