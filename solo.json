@@ -1,12 +1,12 @@
 {
-apt: {
-mirror: "us-east-1.ec2"
-},
-"mongodb": {
+  "apt": {
+    "mirror": "us-east-1.ec2"
+  },
+  "mongodb": {
       "bind_ip": "0.0.0.0"
   },
-run_list: [
-"recipe[apt]",
-"recipe[wercker-mongodb]"
-]
+  "run_list": [
+    "recipe[apt]",
+    "recipe[wercker-mongodb]"
+  ]
 }
