@@ -1,5 +1,5 @@
 name: meteor
-version: 0.0.1
+version: 0.0.2
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
 type: main
 platform: ubuntu@12.04
@@ -12,6 +12,12 @@ keywords:
 packages:
   - meteor@0.6.4
 scripts: |
+  sudo apt-get update
+  sudo apt-get install build-essential chrpath git-core libssl-dev libfontconfig1-dev wget
+  git clone git://github.com/ariya/phantomjs.git
+  cd phantomjs
+  git checkout 1.9
+  ./build.sh
   sudo curl https://install.meteor.com | /bin/sh
 env:
   NODE_VERSION: "0.10.11"
