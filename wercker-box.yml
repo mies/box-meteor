@@ -13,6 +13,8 @@ packages:
   - meteor@0.6.4
 script: |
   sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
+  sudo apt-get update
+  sudo apt-get upgrade
   sudo -s
   curl https://install.meteor.com | /bin/sh
 env:
