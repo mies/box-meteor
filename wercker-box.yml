@@ -1,6 +1,6 @@
 name: meteor
 version: 0.0.9
-inherits: wercker/default
+inherits: wercker/default@0.0.1
 type: main
 platform: ubuntu@12.04
 description: box for building testing and deploying meteor apps
