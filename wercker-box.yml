@@ -12,6 +12,7 @@ keywords:
 packages:
   - meteor@0.6.4
 script: |
+  sudo dpkg --get-selections | grep mongo
   sudo apt-get purge mongodb mongodb-clients mongodb-server mongodb-dev
   sudo ls -la /usr/bin/
   echo "init.d"
