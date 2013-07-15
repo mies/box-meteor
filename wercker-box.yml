@@ -1,5 +1,5 @@
 name: meteor
-version: 0.0.12
+version: 0.0.13
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
 type: main
 platform: ubuntu@12.04
@@ -13,7 +13,7 @@ packages:
   - meteor@0.6.4
 script: |
   sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
-  sudo curl install.meteor.com | /bin/sh
+  sudo /bin/sh install.sh
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
