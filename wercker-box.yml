@@ -14,9 +14,9 @@ packages:
 script: |
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
   echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
-  sudo apt-get install mongodb-10gen wget
   sudo apt-get update
   sudo apt-get upgrade
+  sudo apt-get install mongodb-10gen wget
   cd /tmp/
   wget https://d3fm2vapipm3k9.cloudfront.net/bootstrap/0.6.4/meteor-bootstrap-Linux_x86_64.tar.gz
   tar -zxvf meteor-bootstrap-Linux_x86_64.tar.gz
