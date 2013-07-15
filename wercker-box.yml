@@ -1,6 +1,6 @@
 name: meteor
-version: 0.0.8
-inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
+version: 0.0.9
+inherits: wercker/ubuntu12.04-chef10.18.2@0.0.8
 type: main
 platform: ubuntu@12.04
 description: box for building testing and deploying meteor apps
@@ -13,6 +13,7 @@ packages:
   - meteor@0.6.4
 scripts: |
   sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
+  sudo curl https://install.meteor.com | /bin/sh
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
