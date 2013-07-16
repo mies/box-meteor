@@ -1,11 +1,6 @@
 name: meteor
-<<<<<<< HEAD
 version: 0.0.14
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
-=======
-version: 0.0.9
-inherits: wercker/default@0.0.1
->>>>>>> 1c6621c6132ecfed28b636d8ab7f73d2e1b6d1dc
 type: main
 platform: ubuntu@12.04
 description: box for building testing and deploying meteor apps
@@ -17,8 +12,6 @@ keywords:
 packages:
   - meteor@0.6.4
 script: |
-<<<<<<< HEAD
-=======
   sudo dpkg --get-selections | grep mongo
   sudo apt-get purge mongodb-clients
   sudo ls -la /usr/bin/
