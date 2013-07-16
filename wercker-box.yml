@@ -20,10 +20,10 @@ script: |
   sudo apt-get install mongodb-10gen
   sudo -s
   ls -la /etc/mongodb.conf
-  echo 'nojournal = true' | sudo tee /etc/mongodb.conf
-  echo 'verbose = true' | sudo tee /etc/mongodb.conf
-  echo 'noprealloc = true' | sudo tee /etc/mongodb.conf
-  echo 'smallfiles = true' | sudo tee /etc/mongodb.conf
+  echo 'nojournal = true' | sudo tee -a /etc/mongodb.conf
+  echo 'verbose = true' | sudo tee -a /etc/mongodb.conf
+  echo 'noprealloc = true' | sudo tee -a /etc/mongodb.conf
+  echo 'smallfiles = true' | sudo tee -a /etc/mongodb.conf
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
   netstat -e -4
