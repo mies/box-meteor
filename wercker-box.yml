@@ -22,7 +22,6 @@ script: |
   sudo apt-get update
   sudo apt-get upgrade
   sudo apt-get install mongodb-10gen
-  sudo echo "nojournal = true" >> /etc/mongodb.conf
   sudo /etc/init.d/mongodb restart
   sudo /bin/sh install.sh
 env:
