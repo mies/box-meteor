@@ -24,10 +24,12 @@ script: |
   echo 'verbose = true' | sudo tee -a /etc/mongodb.conf
   echo 'noprealloc = true' | sudo tee -a /etc/mongodb.conf
   echo 'smallfiles = true' | sudo tee -a /etc/mongodb.conf
+  echo 'port = 38128' | sudo tee -a /etc/mongodb.conf
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
   netstat -e -4
   ps aux
+  cat /var/log/mongodb/mongodb.log
   sudo start mongodb
   sleep 5
   netstat -e -4
