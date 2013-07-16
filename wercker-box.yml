@@ -22,8 +22,11 @@ script: |
   sudo service mongodb stop
   sudo -s
   ls -la /etc/mongodb.conf
+  echo 'nojournal = true' | sudo tee /etc/mongodb.conf
+  echo 'verbose = true' | sudo tee /etc/mongodb.conf
+  echo 'noprealloc = true' | sudo tee /etc/mongodb.conf
+  echo 'smallfiles = true' | sudo tee /etc/mongodb.conf
   cat /etc/mongodb.conf
-  echo "nojournal = true" >> /etc/mongodb.conf
   sudo /bin/sh install.sh
   sleep 5
 env:
