@@ -19,7 +19,6 @@ script: |
   sudo apt-get update
   sudo apt-get upgrade
   sudo apt-get install mongodb-10gen
-  sudo stop mongodb
   sudo -s
   ls -la /etc/mongodb.conf
   echo 'nojournal = true' | sudo tee /etc/mongodb.conf
@@ -28,10 +27,11 @@ script: |
   echo 'smallfiles = true' | sudo tee /etc/mongodb.conf
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
+  netstat -e|grep mongo
   sudo start mongodb
   sleep 5
+  netstat -e|grep mongo
   cat /var/log/mongodb/mongodb.log
-  sudo stop mongodb
   sleep 5
   cat /var/log/mongodb/mongodb.log
 env:
