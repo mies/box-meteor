@@ -27,12 +27,12 @@ script: |
   echo 'port = 38128' | sudo tee -a /etc/mongodb.conf
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
-  netstat -e -4
+  lsof -Pnl +M -i4
   ps aux
   cat /var/log/mongodb/mongodb.log
   sudo start mongodb
   sleep 5
-  netstat -e -4
+  lsof -Pnl +M -i4
   cat /var/log/mongodb/mongodb.log
   sleep 5
   cat /var/log/mongodb/mongodb.log
