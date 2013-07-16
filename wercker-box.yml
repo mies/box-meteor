@@ -19,7 +19,7 @@ script: |
   sudo apt-get update
   sudo apt-get upgrade
   sudo apt-get install mongodb-10gen
-  sudo service mongodb stop
+  sudo stop mongodb
   sudo -s
   ls -la /etc/mongodb.conf
   echo 'nojournal = true' | sudo tee /etc/mongodb.conf
@@ -28,10 +28,10 @@ script: |
   echo 'smallfiles = true' | sudo tee /etc/mongodb.conf
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
-  sudo service mongodb start
+  sudo start mongodb
   sleep 5
   cat /var/log/mongodb/mongodb.log
-  sudo service mongodb stop
+  sudo stop mongodb
   sleep 5
   cat /var/log/mongodb/mongodb.log
 env:
