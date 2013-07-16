@@ -27,6 +27,7 @@ script: |
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
   netstat -e -4
+  ps aux
   sudo start mongodb
   sleep 5
   netstat -e -4
