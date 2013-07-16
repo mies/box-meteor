@@ -30,7 +30,7 @@ script: |
   sudo lsof -Pnl +M -i4
   ps aux
   cat /var/log/mongodb/mongodb.log
-  sudo start mongodb
+  sudo /etc/init.d/mongodb restart
   sleep 5
   sudo lsof -Pnl +M -i4
   cat /var/log/mongodb/mongodb.log
