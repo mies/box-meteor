@@ -1,5 +1,5 @@
 name: meteor
-version: 0.0.14
+version: 0.1.7
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
 type: main
 platform: ubuntu@12.04
@@ -14,16 +14,18 @@ packages:
 script: |
   sudo dpkg --get-selections | grep mongo
   sudo apt-get purge mongodb-clients
-  sudo ls -la /usr/bin/
-  echo "init.d"
-  sudo ls -la /etc/init.d/
   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
   echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list
   sudo apt-get update
   sudo apt-get upgrade
   sudo apt-get install mongodb-10gen
-  sudo /etc/init.d/mongodb restart
+  sudo service mongodb stop
+  sudo -s
+  ls -la /etc/mongodb.conf
+  cat /etc/mongodb.conf
+  echo "nojournal = true" >> /etc/mongodb.conf
   sudo /bin/sh install.sh
+  sleep 5
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
