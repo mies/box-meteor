@@ -1,5 +1,5 @@
 name: meteor
-version: 0.1.5
+version: 0.1.6
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
 type: main
 platform: ubuntu@12.04
@@ -19,7 +19,9 @@ script: |
   sudo apt-get update
   sudo apt-get upgrade
   sudo apt-get install mongodb-10gen
-  sudo /etc/init.d/mongodb restart
+  sudo /etc/init.d/mongodb stop
+  sudo -s
+  echo "nojournal = true" >> /etc/mongodb.conf
   sudo /bin/sh install.sh
   sleep 5
 env:
