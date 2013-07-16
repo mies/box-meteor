@@ -34,8 +34,10 @@ script: |
   sleep 5
   sudo lsof -Pnl +M -i4
   cat /var/log/mongodb/mongodb.log
+  sudo /etc/init.d/mongodb stop
   sleep 5
   cat /var/log/mongodb/mongodb.log
+
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
