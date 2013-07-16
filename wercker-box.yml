@@ -1,5 +1,5 @@
 name: meteor
-version: 0.1.8
+version: 0.1.9
 inherits: wercker/ubuntu12.04-nodejs0.10@0.0.1
 type: main
 platform: ubuntu@12.04
@@ -24,7 +24,7 @@ script: |
   echo 'verbose = true' | sudo tee -a /etc/mongodb.conf
   echo 'noprealloc = true' | sudo tee -a /etc/mongodb.conf
   echo 'smallfiles = true' | sudo tee -a /etc/mongodb.conf
-  echo 'port = 38128' | sudo tee -a /etc/mongodb.conf
+  echo 'port = 27017' | sudo tee -a /etc/mongodb.conf
   cat /etc/mongodb.conf
   sudo /bin/sh install.sh
   sudo lsof -Pnl +M -i4
