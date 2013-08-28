@@ -24,7 +24,7 @@ script: |-
   echo 'noprealloc = true' | sudo tee -a /etc/mongodb.conf
   echo 'smallfiles = true' | sudo tee -a /etc/mongodb.conf
   /bin/sh install.sh
-  mkdir -p /data/db/
+  sudo mkdir -p /data/db/
   sudo chown -R mongodb:mongodb /data/
   wget http://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2
   sudo tar xjf phantomjs-1.9.1-linux-x86_64.tar.bz2 -C /usr/local/share
