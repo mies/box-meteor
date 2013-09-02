@@ -39,9 +39,13 @@ script: |-
   # Assert that phantomjs is available
   type phantomjs || { echo "Phantomjs not found after installation! Terminating..."; exit 1; }
 
-  # Install 
+  # Install meteorite
   sudo npm install -g meteorite
   type mrt || { echo "Meteorite not found after installation! Terminating..."; exit 1; }
+  
+  # Install git
+  sudo apt-get install git
+  type git || { echo "Meteorite not found after installation! Terminating..."; exit 1; }
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
