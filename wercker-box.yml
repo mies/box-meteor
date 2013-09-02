@@ -19,18 +19,29 @@ script: |-
   sudo apt-get install build-essential nodejs mongodb-10gen curl wget libfreetype6-dev libfontconfig1-dev
   sudo stop mongodb
   sleep 5
+
   echo 'nojournal = true' | sudo tee -a /etc/mongodb.conf
   echo 'verbose = true' | sudo tee -a /etc/mongodb.conf
   echo 'noprealloc = true' | sudo tee -a /etc/mongodb.conf
   echo 'smallfiles = true' | sudo tee -a /etc/mongodb.conf
   /bin/sh install.sh
+
+  # Create and own /data directory
   sudo mkdir -p /data/db/
   sudo chown -R mongodb:mongodb /data/
+
   wget http://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2
   sudo tar xjf phantomjs-1.9.1-linux-x86_64.tar.bz2 -C /usr/local/share
   sudo ln -s /usr/local/share/phantomjs-1.9.1-linux-x86_64/bin/phantomjs /usr/local/share/phantomjs
   sudo ln -s /usr/local/share/phantomjs-1.9.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
   sudo ln -s /usr/local/share/phantomjs-1.9.1-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+  
+  # Assert that phantomjs is available
+  type phantomjs || { echo "Phantomjs not found after installation! Terminating..."; exit 1; }
+
+  # Install 
+  sudo npm install -g meteorite
+  type mrt || { echo "Meteorite not found after installation! Terminating..."; exit 1; }
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
