@@ -46,6 +46,10 @@ script: |-
   # Install git
   sudo apt-get install git
   type git || { echo "Meteorite not found after installation! Terminating..."; exit 1; }
+  
+    # Install laika
+  sudo npm install -g laika
+  type laika || { echo "Laika not found after installation! Terminating..."; exit 1; }
 env:
   NODE_VERSION: "0.10.11"
   METEOR_VERSION: "0.6.4"
